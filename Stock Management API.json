@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "b7bfd176-b21c-4813-ad09-defb7c2eb5d1",
+		"name": "Stock Management API (Kelompok 3)",
+		"description": "Welcome to the **Stock Management API**!  \nManage your inventory effortlessly — from adding items to tracking transactions and generating stock reports. Let's keep your warehouse organized and under control!\n\n### 🔑 Authentication\n\nAll requests must include the following header:\n\n``` bash\nX-API-Key:{{api_key}}\n\n ```\n\nYou can store `{{api_key}}` as a Postman environment variable.\n\n> _EN: Use this header to authenticate every request to the API._ \n  \n\n🌐 Base URLEndFragment\n\n``` bash\nhttp://localhost:8000/api\n\n ```\n\nSet this as your `{{base_url}}` in Postman.\n\n> EN: Set this as your {{base_url}} in Postman.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43929545"
+	},
+	"item": [
+		{
+			"name": "Get All Items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/items",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items"
+					]
+				},
+				"description": "> EN: Retrieve the entire list of items currently in stock.  \nUseful for displaying the current inventory to users or dashboards \n  \n\nRetrieve the full list of stock items.\n\n- **Method**: `GET`\n    \n- **Endpoint**: `/items`\n    \n- **Response**: List of items with name, quantity, and unit price."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/items/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"1"
+					]
+				},
+				"description": "> EN: Retrieve a specific item by its ID.  \nHelpful when editing or viewing the details of a particular product. \n  \n\nView details of a specific item.\n\n- **Method**: `GET`\n    \n- **Endpoint**: `/items/{id}`\n    \n- **Example**: `/items/1`"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Beras 5kg\", \"quantity\": 100, \"unit_price\": 75000.00}"
+				},
+				"url": {
+					"raw": "{{base_url}}/items",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items"
+					]
+				},
+				"description": "> EN: Add a brand new item to your inventory system.  \nOnly use this if the product doesn’t already exist in the database. \n  \n\nAdd a new product to the inventory.\n\n- **Method**: `POST`\n    \n- **Endpoint**: `/items`\n    \n- **Headers**:\n    \n\n`Content-Type: application/json`"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Beras 5kg Premium\", \"quantity\": 150, \"unit_price\": 80000.00}"
+				},
+				"url": {
+					"raw": "{{base_url}}/items/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"1"
+					]
+				},
+				"description": "> EN: Update the details of an existing product.  \nUse this to modify name, quantity, or price of a stock item. \n  \n\nUpdate details of an existing item.\n\n- **Method**: `PUT`\n    \n- **Endpoint**: `/items/{id}`"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/items/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"items",
+						"1"
+					]
+				},
+				"description": "> EN: Permanently remove an item from your inventory.  \nBe careful! This action is irreversible. \n  \n\nRemove an item permanently.\n\n- **Method**: `DELETE`\n    \n- **Endpoint**: `/items/{id}`"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"item_id\": 1, \"type\": \"IN\", \"quantity\": 50, \"description\": \"Penerimaan stok baru\"}"
+				},
+				"url": {
+					"raw": "{{base_url}}/transactions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"transactions"
+					]
+				},
+				"description": "> EN: Record an inventory transaction — either stock coming in (IN) or going out (OUT).  \nEssential for tracking item movement. \n  \n\nRecord a stock transaction (incoming or outgoing).\n\n- **Method**: `POST`\n    \n- **Endpoint**: `/transactions`"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/transactions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"transactions"
+					]
+				},
+				"description": "> EN: Retrieve all recorded inventory transactions.  \nIdeal for auditing stock flow or viewing historical changes. \n  \n\nView transaction history.\n\n- **Method**: `GET`\n    \n- **Endpoint**: `/transactions`"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stock Report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-Key",
+						"value": "{{api_key}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/stock-report",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stock-report"
+					]
+				},
+				"description": "> EN: Generate a summarized stock report showing current stock levels.  \nBest used for dashboards or management review. \n  \n\nGenerate a report of current stock levels.\n\n- **Method**: `GET`\n    \n- **Endpoint**: `/stock-report`"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api"
+		},
+		{
+			"key": "api_key",
+			"value": "kelompok-3"
+		}
+	]
+}
