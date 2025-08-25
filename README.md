@@ -7,11 +7,11 @@ Dapat diintegrasikan dengan aplikasi frontend (React, Vue, dll) maupun mobile.
 ---
 
 ## Fitur Utama
-- 🔑 Autentikasi user (login & register)
-- 📦 CRUD Produk (Create, Read, Update, Delete)
-- 🔄 Manajemen Transaksi Stok (penambahan & pengurangan)
-- 🗄️ Terhubung dengan MySQL
-- 🧪 Dokumentasi & uji API dengan **Postman**
+-  Autentikasi user (login & register)
+-  CRUD Produk (Create, Read, Update, Delete)
+-  Manajemen Transaksi Stok (penambahan & pengurangan)
+-  Terhubung dengan MySQL
+-  Dokumentasi & uji API dengan **Postman**
 
 ---
 
