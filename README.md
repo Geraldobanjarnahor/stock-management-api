@@ -1,4 +1,4 @@
-# 📦 Stock Management API
+# Stock Management API
 
 RESTful API untuk manajemen stok barang berbasis **Laravel**.  
 API ini dirancang untuk mengelola produk, transaksi stok, serta autentikasi user.  
@@ -6,7 +6,7 @@ Dapat diintegrasikan dengan aplikasi frontend (React, Vue, dll) maupun mobile.
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 - 🔑 Autentikasi user (login & register)
 - 📦 CRUD Produk (Create, Read, Update, Delete)
 - 🔄 Manajemen Transaksi Stok (penambahan & pengurangan)
@@ -15,7 +15,7 @@ Dapat diintegrasikan dengan aplikasi frontend (React, Vue, dll) maupun mobile.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - [Laravel 10](https://laravel.com/)
 - [MySQL](https://www.mysql.com/)
 - [Composer](https://getcomposer.org/)
@@ -23,7 +23,7 @@ Dapat diintegrasikan dengan aplikasi frontend (React, Vue, dll) maupun mobile.
 
 ---
 
-## 🚀 Cara Menjalankan Project
+## Cara Menjalankan Project
 
 ```bash
 # 1. Clone Repository
